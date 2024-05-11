@@ -21,6 +21,10 @@ int main(int argc, char **argv)
 
 	for (int i = 0; i < token_num; i++)
 		printf("[%d]: %s\n", i, tokens[i]);
+	
+	free(token_stream);
+
+	SLR_parsing(tokens, token_num);
 
 	return EXIT_SUCCESS;
 }

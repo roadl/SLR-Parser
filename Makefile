@@ -1,9 +1,9 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = 
 LDIR = ./include
 HEADER = SLR.h
 SDIR = ./
-SRCS = main.c parseFile.c SLR.c stack.c
+SRCS = main.c parseFile.c SLR.c stack.c init.c
 OBJS = $(SRCS:.c=.o)
 NAME = syntax_analyzer
 

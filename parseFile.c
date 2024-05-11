@@ -36,7 +36,7 @@ char **split_string(char *input_string, int *token_num) {
     }
 
     // 토큰을 저장할 배열 동적 할당
-    char **tokens = (char **)malloc(count * sizeof(char *));
+    char **tokens = (char **)malloc((count + 1) * sizeof(char *));
     if (!tokens) {
         fprintf(stderr, "Memory allocation failed\n");
         exit(1);
@@ -49,8 +49,9 @@ char **split_string(char *input_string, int *token_num) {
         tokens[i] = strdup(token);
         token = strtok(NULL, delimiter);
     }
+    tokens[count] = "$";
 
     free(input_copy); // 복사된 문자열 메모리 해제
-    *token_num = count;
+    *token_num = count + 1;
     return tokens;
 }
