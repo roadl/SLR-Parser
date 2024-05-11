@@ -26,6 +26,12 @@ typedef struct cfg
 	int size;
 } CFG;
 
+typedef enum symbol {
+    vtype, id, semi, assign, literal, character, boolstr, addsub, multdiv,
+    lparen, rparen, num, lbrace, rbrace, comma, if_sym, while_sym, comp, else_sym,
+    return_sym, dollar, CODE, VDECL, ASSIGN, RHS, EXPR, E, T, F
+} Symbol;
+
 // get string from file and split string using delemeter
 // functions in paresFile.c
 char *read_file(const char *input_file);

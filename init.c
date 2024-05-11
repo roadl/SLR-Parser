@@ -31,12 +31,10 @@ void init_CFG(CFG *cfg)
         char *token;
         int size = 0;
         cfg[count].RHS = (char **)malloc(sizeof(char *) * 10);
-        //printf("rhs: %s\n", rhs);
         token = strtok(rhs, " ");
         while (token != NULL) {
             cfg[count].RHS[size] = strdup(token);
             token = strtok(NULL, " ");
-            //printf("%s\n", token);
             size++;
         }
         cfg[count].size = size;
@@ -47,18 +45,18 @@ void init_CFG(CFG *cfg)
     // 파일 닫기
     fclose(file);
 
-	for (int i = 0; i < 35; i++)
-	{
-		printf("%s ->", cfg[i].LHS);
-		for (int j = 0; j < cfg[i].size; j++)
-		{
-			printf(" %s", cfg[i].RHS[j]);
-		}
-		printf("\n");
-	}
+	// for (int i = 0; i < 35; i++)
+	// {
+	// 	printf("%s ->", cfg[i].LHS);
+	// 	for (int j = 0; j < cfg[i].size; j++)
+	// 	{
+	// 		printf(" %s", cfg[i].RHS[j]);
+	// 	}
+	// 	printf("\n");
+	// }
 }
 
 void init_table(int **table)
 {
-
+    
 }

@@ -1,0 +1,79 @@
+LR table
+State	ACTION	GOTO
+vtype	id	semi	assign	literal	character	boolstr	addsub	multdiv	(	)	num	lparen	rparen	lbrace	rbrace	comma	if	while	comp	else	return	$	CODE	VDECL	ASSIGN	RHS	EXPR	E	T	F	FDECL	ARG	MOREARGS	BLOCK	STMT	COND	COND'	ELSE	RETURN
+0	s2	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	1	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+1	s5	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	r2	3	1	 	 	 	 	 	 	4	 	 	 	 	 	 	 	 
+2	 	s6	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	7	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+3	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	acc	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+4	s5	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	r2	8	1	 	 	 	 	 	 	4	 	 	 	 	 	 	 	 
+5	 	s9	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	7	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+6	 	 	s10	s11	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+7	 	 	s12	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+8	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	r1	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+9	 	 	s10	s11	 	 	 	 	 	 	 	 	s13	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+10	r3	r3	 	 	 	 	 	 	 	 	 	 	 	 	 	r3	 	r3	r3	 	 	r3	r3	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+11	 	s23	 	 	s16	s17	s18	 	 	s22	 	s24	 	 	 	 	 	 	 	 	 	 	 	 	 	 	14	15	19	20	21	 	 	 	 	 	 	 	 	 
+12	r4	r4	 	 	 	 	 	 	 	 	 	 	 	 	 	r4	 	r4	r4	 	 	r4	r4	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+13	s26	 	 	 	 	 	 	 	 	 	 	 	 	r20	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	25	 	 	 	 	 	 	 
+14	 	 	r5	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+15	 	 	r6	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+16	 	 	r7	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+17	 	 	r8	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+18	 	 	r9	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+19	 	 	r10	 	 	 	 	s27	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+20	 	 	r12	 	 	 	 	r12	s28	 	r12	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+21	 	 	r14	 	 	 	 	r14	r14	 	r14	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+22	 	s23	 	 	 	 	 	 	 	s22	 	s24	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	29	20	21	 	 	 	 	 	 	 	 	 
+23	 	 	r16	 	 	 	 	r16	r16	 	r16	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+24	 	 	r17	 	 	 	 	r17	r17	 	r17	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+25	 	 	 	 	 	 	 	 	 	 	 	 	 	s30	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+26	 	s31	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+27	 	s23	 	 	 	 	 	 	 	s22	 	s24	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	32	21	 	 	 	 	 	 	 	 	 
+28	 	s23	 	 	 	 	 	 	 	s22	 	s24	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	33	 	 	 	 	 	 	 	 	 
+29	 	 	 	 	 	 	 	s27	 	 	s34	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+30	 	 	 	 	 	 	 	 	 	 	 	 	 	 	s35	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+31	 	 	 	 	 	 	 	 	 	 	 	 	 	r22	 	 	s37	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	36	 	 	 	 	 	 
+32	 	 	r11	 	 	 	 	r11	s28	 	r11	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+33	 	 	r13	 	 	 	 	r13	r13	 	r13	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+34	 	 	r15	 	 	 	 	r15	r15	 	r15	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+35	s2	s44	 	 	 	 	 	 	 	 	 	 	 	 	 	r24	 	s42	s43	 	 	r24	 	 	40	41	 	 	 	 	 	 	 	 	38	39	 	 	 	 
+36	 	 	 	 	 	 	 	 	 	 	 	 	 	r19	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+37	s45	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+38	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	s47	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	46
+39	s2	s44	 	 	 	 	 	 	 	 	 	 	 	 	 	r24	 	s42	s43	 	 	r24	 	 	40	41	 	 	 	 	 	 	 	 	48	39	 	 	 	 
+40	r25	r25	 	 	 	 	 	 	 	 	 	 	 	 	 	r25	 	r25	r25	 	 	r25	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+41	 	 	s49	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+42	 	 	 	 	 	 	 	 	 	 	 	 	s50	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+43	 	 	 	 	 	 	 	 	 	 	 	 	s51	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+44	 	 	 	s11	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+45	 	s52	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+46	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	s53	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+47	 	s23	 	 	s16	s17	s18	 	 	s22	 	s24	 	 	 	 	 	 	 	 	 	 	 	 	 	 	54	15	19	20	21	 	 	 	 	 	 	 	 	 
+48	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	r23	 	 	 	 	 	r23	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+49	r26	r26	 	 	 	 	 	 	 	 	 	 	 	 	 	r26	 	r26	r26	 	 	r26	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+50	 	 	 	 	 	 	s56	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	55	 	 	 
+51	 	 	 	 	 	 	s56	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	57	 	 	 
+52	 	 	 	 	 	 	 	 	 	 	 	 	 	r22	 	 	s37	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	58	 	 	 	 	 	 
+53	r18	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	r18	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+54	 	 	s59	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+55	 	 	 	 	 	 	 	 	 	 	 	 	 	s60	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+56	 	 	 	 	 	 	 	 	 	 	 	 	 	r31	 	 	 	 	 	s62	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	61	 	 
+57	 	 	 	 	 	 	 	 	 	 	 	 	 	s63	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+58	 	 	 	 	 	 	 	 	 	 	 	 	 	r21	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+59	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	r34	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+60	 	 	 	 	 	 	 	 	 	 	 	 	 	 	s64	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+61	 	 	 	 	 	 	 	 	 	 	 	 	 	r29	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+62	 	 	 	 	 	 	s56	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	65	 	 	 
+63	 	 	 	 	 	 	 	 	 	 	 	 	 	 	s66	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+64	s2	s44	 	 	 	 	 	 	 	 	 	 	 	 	 	r24	 	s42	s43	 	 	r24	 	 	40	41	 	 	 	 	 	 	 	 	67	39	 	 	 	 
+65	 	 	 	 	 	 	 	 	 	 	 	 	 	r30	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+66	s2	s44	 	 	 	 	 	 	 	 	 	 	 	 	 	r24	 	s42	s43	 	 	r24	 	 	40	41	 	 	 	 	 	 	 	 	68	39	 	 	 	 
+67	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	s69	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+68	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	s70	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+69	r33	r33	 	 	 	 	 	 	 	 	 	 	 	 	 	r33	 	r33	r33	 	s72	r33	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	71	 
+70	r28	r28	 	 	 	 	 	 	 	 	 	 	 	 	 	r28	 	r28	r28	 	 	r28	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+71	r27	r27	 	 	 	 	 	 	 	 	 	 	 	 	 	r27	 	r27	r27	 	 	r27	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+72	 	 	 	 	 	 	 	 	 	 	 	 	 	 	s73	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+73	s2	s44	 	 	 	 	 	 	 	 	 	 	 	 	 	r24	 	s42	s43	 	 	r24	 	 	40	41	 	 	 	 	 	 	 	 	74	39	 	 	 	 
+74	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	s75	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
+75	r32	r32	 	 	 	 	 	 	 	 	 	 	 	 	 	r32	 	r32	r32	 	 	r32	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 
