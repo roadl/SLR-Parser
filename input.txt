@@ -1,2 +1,2 @@
 vtype id semi vtype id lparen rparen lbrace if lparen boolstr comp boolstr rparen lbrace
-rbrace
+vtype id semi rbrace return id semi rbrace

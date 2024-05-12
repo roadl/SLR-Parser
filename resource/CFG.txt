@@ -13,7 +13,7 @@ E -> E addsub T
 E -> T
 T -> T multdiv F
 T -> F
-F -> ( E )
+F -> lparen E rparen
 F -> id
 F -> num
 FDECL -> vtype id lparen ARG rparen lbrace BLOCK RETURN rbrace
@@ -27,9 +27,9 @@ STMT -> VDECL
 STMT -> ASSIGN semi
 STMT -> if lparen COND rparen lbrace BLOCK rbrace ELSE
 STMT -> while lparen COND rparen lbrace BLOCK rbrace
-COND -> boolstr COND'
-COND' -> comp COND
-COND' -> ''
+COND -> boolstr _COND
+_COND -> comp COND
+_COND -> ''
 ELSE -> else lbrace BLOCK rbrace
 ELSE -> ''
 RETURN -> return RHS semi

@@ -19,12 +19,12 @@ int main(int argc, char **argv)
 	int token_num;
 	char **tokens = split_string(token_stream, &token_num);
 
-	for (int i = 0; i < token_num; i++)
-		printf("[%d]: %s\n", i, tokens[i]);
+	// for (int i = 0; i < token_num; i++)
+	// 	printf("[%d]: %s\n", i, tokens[i]);
 	
 	free(token_stream);
 
 	SLR_parsing(tokens, token_num);
 
-	return EXIT_SUCCESS;
+	return 0;
 }

@@ -1,15 +1,15 @@
-CC = gcc
+CC = c++
 CFLAGS = 
 LDIR = ./include
 HEADER = SLR.h
-SDIR = ./
-SRCS = main.c parseFile.c SLR.c stack.c init.c
+SDIR = ./src
+SRCS = main.cpp parseFile.cpp SLR.cpp init.cpp
 OBJS = $(SRCS:.c=.o)
 NAME = syntax_analyzer
 
 all: $(NAME)
 
-$(NAME): $(SRCS)
+$(NAME): $(addprefix $(SDIR)/, $(SRCS))
 	$(CC) $(CFLAGS) $^ -o $@ -I$(LDIR)
 
 re: fclean all
