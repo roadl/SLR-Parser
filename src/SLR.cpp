@@ -15,7 +15,7 @@ stack<Node *> parsing_stack;
 // Stack에 n을 넣고 spliter 위치 오른쪽으로 증가
 void shift(int *spliter, char *token, int n)
 {
-    printf("S%d\n", n);
+    //printf("S%d\n", n);
 
 	state_stack.push(n);
     parsing_stack.push(new Node(token));
@@ -30,10 +30,7 @@ void reduce(CFG *cfg, int n)
     Node *node = new Node(cfg[n].LHS);
     Node *temp;
 
-    printf("R%d\n", n);
-
-    if (size == 0)
-        printf("size = 0, %s\n", cfg[n].LHS);
+    //printf("R%d\n", n);
 
 	for (int i = 0; i < size; i++)
     {
@@ -50,7 +47,7 @@ void reduce(CFG *cfg, int n)
 
     state = atoi(table[state][get_symbol(parsing_stack.top()->token)]);
     
-    printf("G%d\n", state);
+    //printf("G%d\n", state);
 
     state_stack.push(state);
 }

@@ -87,8 +87,6 @@ void init_table(char *table[TABLE_ROW][TABLE_COL])
 
     fclose(file);
 
-    printf("%s\n", table[0][VDECL]);
-
     // printf("parsing done\n");
 
     // for (int i = 0; i < TABLE_ROW; i++)
