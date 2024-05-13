@@ -93,3 +93,8 @@ Accept!!!
         │   │   └── semi
         │   └── rbrace
         └── CODE
+            ├── VDECL
+            │   ├── vtype
+            │   ├── id
+            │   └── semi
+            └── CODE
