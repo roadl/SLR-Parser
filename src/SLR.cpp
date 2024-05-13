@@ -2,14 +2,16 @@
 
 Symbol get_symbol(char *str);
 void print_tree(Node* node, std::string prefix = "", bool is_last = true);
+void print_error(char **tokens, int spliter, int token_num);
 
 template<typename T>
 void printStack(const stack<T> &stk);
-void printStackString(const stack<Node *> &stk);
+void printNodeStack(const stack<Node *>& stk);
 
 char *table[TABLE_ROW][TABLE_COL];
 stack<int> state_stack;
 stack<Node *> parsing_stack;
+int step;
 
 // SN 을 실행함
 // Stack에 n을 넣고 spliter 위치 오른쪽으로 증가
@@ -20,6 +22,7 @@ void shift(int *spliter, char *token, int n)
 	state_stack.push(n);
     parsing_stack.push(new Node(token));
 	(*spliter)++;
+    step++;
 }
 
 // RN 을 실행함
@@ -43,13 +46,18 @@ void reduce(CFG *cfg, int n)
 
     parsing_stack.push(node);
 
-    int state = state_stack.top();
+    step++;
+}
 
+void GOTO(int state)
+{
     state = atoi(table[state][get_symbol(parsing_stack.top()->token)]);
     
     //printf("G%d\n", state);
 
     state_stack.push(state);
+
+    step++;
 }
 
 // char *step(int state, char *token)
@@ -60,7 +68,7 @@ void reduce(CFG *cfg, int n)
 void SLR_parsing(char **tokens, int token_num)
 {
 	CFG cfg[CFG_SIZE];
-	int spliter = 0, i = 0;
+	int spliter = 0;
 
     state_stack.push(0);
 
@@ -74,17 +82,28 @@ void SLR_parsing(char **tokens, int token_num)
 
         state = state_stack.top();
         action = table[state][get_symbol(tokens[spliter])];
+        int next_state = atoi(action + 1);
 
         // printf("Step%d state:%d, action:%s, spliter:%d\n", i, state, action, spliter);
 
         // printStack(state_stack);
         // printStack(parsing_stack);
 
+        if (next_state > TABLE_ROW)
+        {
+            cout << "Error occured at step " << step << ", No State " << next_state \ 
+                << " in parsing table" << endl;
+            print_error(tokens, spliter, token_num);
+        }
+
         if (strncmp(action, "s", 1) == 0)
             shift(&spliter, tokens[spliter], atoi(action + 1));
-        if (strncmp(action, "r", 1) == 0)
+        else if (strncmp(action, "r", 1) == 0)
+        {
             reduce(cfg, atoi(action + 1));
-        if (strcmp(action, "acc") == 0)
+            GOTO(state_stack.top());
+        }
+        else if (strcmp(action, "acc") == 0)
         {
             printf("Accept!!!\n");
 
@@ -100,8 +119,36 @@ void SLR_parsing(char **tokens, int token_num)
 
             exit(EXIT_SUCCESS);
         }
-        i++;
-	}
+
+        else
+        {
+            cout << "Error occured at step " << step << ", No action in table[" \
+                << state << "][" << tokens[spliter] << "]" << endl;
+            print_error(tokens, spliter, token_num);
+        }
+    }
+}
+
+void print_error(char **tokens, int spliter, int token_num)
+{
+    printStack(state_stack);
+    printNodeStack(parsing_stack);
+    cout << tokens[spliter] << " | ";
+    for (int i = spliter + 1; i < token_num; i++)
+        cout << tokens[i] << " ";  
+    cout << endl;
+
+    Node *n = new Node("CODE");
+
+    while (!parsing_stack.empty())
+    {
+        n->childs.push_back(parsing_stack.top());
+        parsing_stack.pop();
+    }
+
+    print_tree(n);
+
+    exit(EXIT_FAILURE);
 }
 
 void print_tree(Node* node, string prefix, bool is_last) {
@@ -122,24 +169,42 @@ void print_tree(Node* node, string prefix, bool is_last) {
 template<typename T>
 void printStack(const std::stack<T>& stk) {
     std::stack<T> temp = stk;
+    std::stack<T> reversedStack;
 
-    std::cout << "Stack elements: ";
+    // 원래 스택을 역순으로 복사
     while (!temp.empty()) {
-        std::cout << temp.top() << " ";
+        reversedStack.push(temp.top());
         temp.pop();
     }
-    std::cout << std::endl;
+
+    std::cout << "State Stack: ";
+    
+    // 역순으로 출력
+    while (!reversedStack.empty()) {
+        std::cout << reversedStack.top() << " ";
+        reversedStack.pop();
+    }
+
+    cout << endl;
 }
 
-void printStackString(const std::stack<Node *>& stk) {
+void printNodeStack(const std::stack<Node *>& stk) {
     std::stack<Node *> temp = stk;
+    std::stack<string> reversedStack;
 
-    std::cout << "Stack elements: ";
+    // 원래 스택을 역순으로 복사
     while (!temp.empty()) {
-        printf("%s ", temp.top()->token);
+        reversedStack.push(temp.top()->token);
         temp.pop();
     }
-    std::cout << std::endl;
+
+    std::cout << "Token Stack: ";
+    
+    // 역순으로 출력
+    while (!reversedStack.empty()) {
+        std::cout << reversedStack.top() << " ";
+        reversedStack.pop();
+    }
 }
 
 Symbol get_symbol(char *str) {
