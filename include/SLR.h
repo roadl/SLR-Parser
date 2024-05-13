@@ -1,6 +1,8 @@
 #ifndef SLR_H
 # define SLR_H
 
+//# define DEBUG
+
 # define CFG_SIZE	36
 
 # define TABLE_ROW	78
@@ -58,5 +60,8 @@ void SLR_parsing(char **tokens, int token_num);
 // functiosn in init.c
 void init_CFG(CFG *cfg);
 void init_table(char *table[TABLE_ROW][TABLE_COL]);
+
+// Translate string symbol into enumtype Symbol
+Symbol get_symbol(char *str);
 
 #endif

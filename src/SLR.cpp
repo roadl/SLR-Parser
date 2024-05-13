@@ -23,7 +23,9 @@ int step;                           // parsing step, using error print
 // Stack에 n을 넣고 spliter 위치 오른쪽으로 증가
 void shift(int *spliter, char *token, int n)
 {
-    //printf("S%d\n", n);
+    #ifdef DEBUG
+        printf("S%d\n", n);
+    #endif
 
 	state_stack.push(n);
     parsing_stack.push(new Node(token));
@@ -39,7 +41,9 @@ void reduce(CFG *cfg, int n)
     Node *node = new Node(cfg[n].LHS);
     Node *temp;
 
-    //printf("R%d\n", n);
+    #ifdef DEBUG
+        printf("R%d\n", n);
+    #endif
 
 	for (int i = 0; i < size; i++)
     {
@@ -61,7 +65,9 @@ void GOTO(int state)
 {
     state = atoi(table[state][get_symbol(parsing_stack.top()->token)]);
     
-    //printf("G%d\n", state);
+    #ifdef DEBUG
+        printf("GOTO%d\n", state);
+    #endif
 
     state_stack.push(state);
 
@@ -91,16 +97,22 @@ void SLR_parsing(char **tokens, int token_num)
         action = table[state][get_symbol(tokens[spliter])];
         int next_state = atoi(action + 1);
 
-        // // debug code
-        // printf("Step%d state:%d, action:%s, spliter:%d\n", i, state, action, spliter);
+        #ifdef DEBUG
+            // debug code
+            printf("===== Step%d action:%s =====\n", step, action);
 
-        // printStack(state_stack);
-        // printStack(parsing_stack);
+            printStack(state_stack);
+            printNodeStack(parsing_stack);
+            cout << "| ";
+            for (int i = spliter; i < token_num; i++)
+                cout << tokens[i] << " ";
+            cout << endl;
+        #endif
 
         // if state is out of range, print error, exit
         if (next_state >= TABLE_ROW)
         {
-            cout << "Error occured at step " << step << ", No State " << next_state \ 
+            cout << "Error occured at step " << step << ", No State " << next_state \
                 << " in parsing table" << endl;
             print_error(tokens, spliter, token_num);
         }
@@ -119,7 +131,7 @@ void SLR_parsing(char **tokens, int token_num)
         {
             printf("Accept!!!\n");
 
-            Node *n = new Node("S");
+            Node *n = new Node(strdup("S"));
 
             while (!parsing_stack.empty())
             {
@@ -149,7 +161,7 @@ void print_error(char **tokens, int spliter, int token_num)
         cout << tokens[i] << " ";  
     cout << endl;
 
-    Node *n = new Node("S");
+    Node *n = new Node(strdup("S"));
 
     while (!parsing_stack.empty())
     {

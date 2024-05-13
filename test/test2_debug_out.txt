@@ -1,0 +1,84 @@
+===== Step0 action:s4 =====
+State Stack: 0 
+Token Stack: | vtype id assign id semi $ 
+S4
+===== Step1 action:s7 =====
+State Stack: 0 4 
+Token Stack: vtype | id assign id semi $ 
+S7
+===== Step2 action:s11 =====
+State Stack: 0 4 7 
+Token Stack: vtype id | assign id semi $ 
+S11
+===== Step3 action:s24 =====
+State Stack: 0 4 7 11 
+Token Stack: vtype id assign | id semi $ 
+S24
+===== Step4 action:r17 =====
+State Stack: 0 4 7 11 24 
+Token Stack: vtype id assign id | semi $ 
+R17
+GOTO22
+===== Step6 action:r15 =====
+State Stack: 0 4 7 11 22 
+Token Stack: vtype id assign F | semi $ 
+R15
+GOTO21
+===== Step8 action:r13 =====
+State Stack: 0 4 7 11 21 
+Token Stack: vtype id assign T | semi $ 
+R13
+GOTO20
+===== Step10 action:r11 =====
+State Stack: 0 4 7 11 20 
+Token Stack: vtype id assign E | semi $ 
+R11
+GOTO16
+===== Step12 action:r7 =====
+State Stack: 0 4 7 11 16 
+Token Stack: vtype id assign EXPR | semi $ 
+R7
+GOTO15
+===== Step14 action:r6 =====
+State Stack: 0 4 7 11 15 
+Token Stack: vtype id assign RHS | semi $ 
+R6
+GOTO8
+===== Step16 action:s12 =====
+State Stack: 0 4 8 
+Token Stack: vtype ASSIGN | semi $ 
+S12
+===== Step17 action:r5 =====
+State Stack: 0 4 8 12 
+Token Stack: vtype ASSIGN semi | $ 
+R5
+GOTO2
+===== Step19 action:r3 =====
+State Stack: 0 2 
+Token Stack: VDECL | $ 
+R3
+GOTO5
+===== Step21 action:r1 =====
+State Stack: 0 2 5 
+Token Stack: VDECL CODE | $ 
+R1
+GOTO1
+===== Step23 action:acc =====
+State Stack: 0 1 
+Token Stack: CODE | $ 
+Accept!!!
+└── S
+    └── CODE
+        ├── VDECL
+        │   ├── vtype
+        │   ├── ASSIGN
+        │   │   ├── id
+        │   │   ├── assign
+        │   │   └── RHS
+        │   │       └── EXPR
+        │   │           └── E
+        │   │               └── T
+        │   │                   └── F
+        │   │                       └── id
+        │   └── semi
+        └── CODE

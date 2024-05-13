@@ -1,5 +1,5 @@
 CC = c++
-CFLAGS = 
+CFLAGS = -Wall -Wextra -Werror
 LDIR = ./include
 HEADER = SLR.h
 SDIR = ./src

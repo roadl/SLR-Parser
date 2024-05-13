@@ -24,9 +24,13 @@ int main(int argc, char **argv)
 	int token_num;
 	char **tokens = split_string(token_stream, &token_num);
 
-	// // debug code
-	// for (int i = 0; i < token_num; i++)
-	// 	printf("[%d]: %s\n", i, tokens[i]);
+	// debug code
+	for (int i = 0; i < token_num; i++)
+		if (get_symbol(tokens[i]) == ERROR)
+			{
+				cout << "Input file has invalid token!!" << endl;
+				exit (EXIT_FAILURE);
+			}
 	
 	free(token_stream);
 
