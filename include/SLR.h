@@ -1,7 +1,6 @@
 #ifndef SLR_H
 # define SLR_H
 
-# define STACK_SIZE	100
 # define CFG_SIZE	36
 
 # define TABLE_ROW	76
@@ -27,6 +26,7 @@ typedef struct cfg
 	int size;
 } CFG;
 
+// symbol enum type
 typedef enum symbol {
     vtype, id, semi, assign, literal, character, boolstr, addsub, multdiv = 8,
     lparen, rparen, num, lbrace, rbrace, comma, if_sym, while_sym, comp, else_sym = 18,
@@ -34,6 +34,7 @@ typedef enum symbol {
 	BLOCK, STMT, COND, _COND, ELSE, RETURN, ERROR = 38
 } Symbol;
 
+// Node class for implement tree
 class Node
 {
 public:

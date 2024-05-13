@@ -49,7 +49,7 @@ char **split_string(char *input_string, int *token_num) {
         tokens[i] = strdup(token);
         token = strtok(NULL, delimiter);
     }
-    tokens[count] = "$";
+    tokens[count] = strdup("$");
 
     free(input_copy); // 복사된 문자열 메모리 해제
     *token_num = count + 1;

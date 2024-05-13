@@ -1,19 +1,25 @@
 #include "SLR.h"
 
+// get symbol enum by str
+// ex) "COND" -> COND (type Symbol)
 Symbol get_symbol(char *str);
+
+// print tree by argument root node
 void print_tree(Node* node, std::string prefix = "", bool is_last = true);
+// print error (current state stack, parsing stack) and exit
 void print_error(char **tokens, int spliter, int token_num);
 
+// print stack functions
 template<typename T>
 void printStack(const stack<T> &stk);
 void printNodeStack(const stack<Node *>& stk);
 
-char *table[TABLE_ROW][TABLE_COL];
-stack<int> state_stack;
-stack<Node *> parsing_stack;
-int step;
+char *table[TABLE_ROW][TABLE_COL];  // parsing table
+stack<int> state_stack;             // state stack
+stack<Node *> parsing_stack;        // parsing stack (substring in spliter left)
+int step;                           // parsing step, using error print
 
-// SN 을 실행함
+// Sn 을 실행함
 // Stack에 n을 넣고 spliter 위치 오른쪽으로 증가
 void shift(int *spliter, char *token, int n)
 {
@@ -25,8 +31,8 @@ void shift(int *spliter, char *token, int n)
     step++;
 }
 
-// RN 을 실행함
-// Stack에서 N번째 룰의 크기만큼 pop, goto 실행
+// Rn 을 실행함
+// Stack에서 cfg[n]번째 룰의 크기만큼 pop, cfg[n].LHS 추가
 void reduce(CFG *cfg, int n)
 {
 	int size = cfg[n].size;
@@ -49,6 +55,8 @@ void reduce(CFG *cfg, int n)
     step++;
 }
 
+// GOTO action
+// Execute after Reduce
 void GOTO(int state)
 {
     state = atoi(table[state][get_symbol(parsing_stack.top()->token)]);
@@ -60,35 +68,36 @@ void GOTO(int state)
     step++;
 }
 
-// char *step(int state, char *token)
-// {
-
-// }
-
 void SLR_parsing(char **tokens, int token_num)
 {
 	CFG cfg[CFG_SIZE];
 	int spliter = 0;
 
+    // add init state
     state_stack.push(0);
 
+    // init CFG, table (parsing from resource folder)
 	init_CFG(cfg);
     init_table(table);
 
+    // parsing loop
 	while (spliter < token_num)
 	{
         char *action;
         int state;
 
+        // get current state, action, next state
         state = state_stack.top();
         action = table[state][get_symbol(tokens[spliter])];
         int next_state = atoi(action + 1);
 
+        // // debug code
         // printf("Step%d state:%d, action:%s, spliter:%d\n", i, state, action, spliter);
 
         // printStack(state_stack);
         // printStack(parsing_stack);
 
+        // if state is out of range, print error, exit
         if (next_state > TABLE_ROW)
         {
             cout << "Error occured at step " << step << ", No State " << next_state \ 
@@ -96,6 +105,9 @@ void SLR_parsing(char **tokens, int token_num)
             print_error(tokens, spliter, token_num);
         }
 
+        // check table first character
+        // if s -> shift, r -> reduce and goto, acc -> accept and print tree, exit
+        // else -> no action in table, error! print error, exit
         if (strncmp(action, "s", 1) == 0)
             shift(&spliter, tokens[spliter], atoi(action + 1));
         else if (strncmp(action, "r", 1) == 0)
@@ -119,7 +131,6 @@ void SLR_parsing(char **tokens, int token_num)
 
             exit(EXIT_SUCCESS);
         }
-
         else
         {
             cout << "Error occured at step " << step << ", No action in table[" \

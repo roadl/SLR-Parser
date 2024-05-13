@@ -1,5 +1,8 @@
 #include "SLR.h"
 
+// parse ./resource/CFG.txt
+// CFG count defined in SLR.h
+// parse into cfg[n].(LHS, RHS, size(RHS size))
 void init_CFG(CFG *cfg)
 {
     FILE *file = fopen("./resource/CFG.txt", "r");
@@ -47,6 +50,7 @@ void init_CFG(CFG *cfg)
     // 파일 닫기
     fclose(file);
 
+    // //debug code
 	// for (int i = 0; i < 35; i++)
 	// {
 	// 	printf("%s ->", cfg[i].LHS);
@@ -58,6 +62,9 @@ void init_CFG(CFG *cfg)
 	// }
 }
 
+// parsing SLR parsing table
+// TABLE_ROW, TABLE_COL defined in SLR.h
+// parse into table[state][symbol] = action;
 void init_table(char *table[TABLE_ROW][TABLE_COL])
 {
     FILE *file = fopen("./resource/table.txt", "r");
@@ -87,6 +94,7 @@ void init_table(char *table[TABLE_ROW][TABLE_COL])
 
     fclose(file);
 
+    // //debug code
     // printf("parsing done\n");
 
     // for (int i = 0; i < TABLE_ROW; i++)
