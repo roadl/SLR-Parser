@@ -48,7 +48,7 @@ Simple SLP Parser, Compiler term project
   1.2 Changes
     a.	add start symbol S (CFG line 1)
     b.	Each rule is listed one line at a time.
-    c.	modify EXPR rules (Origin CFG line 05~06) to E, T, F rules to remove ambiguity and assign operation     priorities. (CFG line 12~19)
+    c.	modify EXPR rules (Origin CFG line 05-06) to E, T, F rules to remove ambiguity and assign operation     priorities. (CFG line 12-19)
     d.	modify COND rules (Origin CFG line 14) to COND and _COND rules to remove ambiguity. (CFG line 31~33)
 
 2. SLR parsing table (can see bigger in 
