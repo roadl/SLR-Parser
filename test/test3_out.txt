@@ -1,0 +1,49 @@
+Accept!!!
+└── S
+    └── CODE
+        ├── VDECL
+        │   ├── vtype
+        │   ├── id
+        │   └── semi
+        └── CODE
+            ├── FDECL
+            │   ├── vtype
+            │   ├── id
+            │   ├── lparen
+            │   ├── ARG
+            │   ├── rparen
+            │   ├── lbrace
+            │   ├── BLOCK
+            │   │   ├── STMT
+            │   │   │   ├── if
+            │   │   │   ├── lparen
+            │   │   │   ├── COND
+            │   │   │   │   ├── boolstr
+            │   │   │   │   └── _COND
+            │   │   │   │       ├── comp
+            │   │   │   │       └── COND
+            │   │   │   │           ├── boolstr
+            │   │   │   │           └── _COND
+            │   │   │   ├── rparen
+            │   │   │   ├── lbrace
+            │   │   │   ├── BLOCK
+            │   │   │   │   ├── STMT
+            │   │   │   │   │   └── VDECL
+            │   │   │   │   │       ├── vtype
+            │   │   │   │   │       ├── id
+            │   │   │   │   │       └── semi
+            │   │   │   │   └── BLOCK
+            │   │   │   ├── rbrace
+            │   │   │   └── ELSE
+            │   │   └── BLOCK
+            │   ├── RETURN
+            │   │   ├── return
+            │   │   ├── RHS
+            │   │   │   └── EXPR
+            │   │   │       └── E
+            │   │   │           └── T
+            │   │   │               └── F
+            │   │   │                   └── id
+            │   │   └── semi
+            │   └── rbrace
+            └── CODE

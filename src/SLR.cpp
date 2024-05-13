@@ -98,7 +98,7 @@ void SLR_parsing(char **tokens, int token_num)
         // printStack(parsing_stack);
 
         // if state is out of range, print error, exit
-        if (next_state > TABLE_ROW)
+        if (next_state >= TABLE_ROW)
         {
             cout << "Error occured at step " << step << ", No State " << next_state \ 
                 << " in parsing table" << endl;
@@ -119,7 +119,7 @@ void SLR_parsing(char **tokens, int token_num)
         {
             printf("Accept!!!\n");
 
-            Node *n = new Node("CODE");
+            Node *n = new Node("S");
 
             while (!parsing_stack.empty())
             {
@@ -149,7 +149,7 @@ void print_error(char **tokens, int spliter, int token_num)
         cout << tokens[i] << " ";  
     cout << endl;
 
-    Node *n = new Node("CODE");
+    Node *n = new Node("S");
 
     while (!parsing_stack.empty())
     {
@@ -240,6 +240,7 @@ Symbol get_symbol(char *str) {
     if (strcmp(str, "else") == 0) return else_sym;
     if (strcmp(str, "return") == 0) return return_sym;
     if (strcmp(str, "$") == 0) return dollar;
+    if (strcmp(str, "S") == 0) return S;
     if (strcmp(str, "CODE") == 0) return CODE;
     if (strcmp(str, "VDECL") == 0) return VDECL;
     if (strcmp(str, "ASSIGN") == 0) return ASSIGN;

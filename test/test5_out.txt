@@ -1,0 +1,13 @@
+Error occured at step 11, No action in table[26][if]
+State Stack: 0 2 4 7 10 13 26 
+Token Stack: VDECL vtype id lparen ARG rparen if | lparen boolstr comp boolstr rparen lbrace vtype id semi rbrace return id semi rbrace $ 
+└── S
+    ├── VDECL
+    │   ├── vtype
+    │   ├── id
+    │   └── semi
+    ├── vtype
+    ├── id
+    ├── lparen
+    ├── ARG
+    └── rparen

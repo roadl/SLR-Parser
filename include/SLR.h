@@ -3,8 +3,8 @@
 
 # define CFG_SIZE	36
 
-# define TABLE_ROW	76
-# define TABLE_COL	40
+# define TABLE_ROW	78
+# define TABLE_COL	41
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -30,8 +30,8 @@ typedef struct cfg
 typedef enum symbol {
     vtype, id, semi, assign, literal, character, boolstr, addsub, multdiv = 8,
     lparen, rparen, num, lbrace, rbrace, comma, if_sym, while_sym, comp, else_sym = 18,
-    return_sym, dollar, CODE, VDECL, ASSIGN, RHS, EXPR, E, T, F, FDECL, ARG, MOREARGS = 31, 
-	BLOCK, STMT, COND, _COND, ELSE, RETURN, ERROR = 38
+    return_sym, dollar, S, CODE, VDECL, ASSIGN, RHS, EXPR, E, T, F, FDECL, ARG, MOREARGS = 32, 
+	BLOCK, STMT, COND, _COND, ELSE, RETURN, ERROR = 39
 } Symbol;
 
 // Node class for implement tree

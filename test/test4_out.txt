@@ -1,0 +1,154 @@
+Accept!!!
+└── S
+    └── CODE
+        ├── FDECL
+        │   ├── vtype
+        │   ├── id
+        │   ├── lparen
+        │   ├── ARG
+        │   │   ├── vtype
+        │   │   ├── id
+        │   │   └── MOREARGS
+        │   │       ├── comma
+        │   │       ├── vtype
+        │   │       ├── id
+        │   │       └── MOREARGS
+        │   ├── rparen
+        │   ├── lbrace
+        │   ├── BLOCK
+        │   │   ├── STMT
+        │   │   │   ├── ASSIGN
+        │   │   │   │   ├── id
+        │   │   │   │   ├── assign
+        │   │   │   │   └── RHS
+        │   │   │   │       └── EXPR
+        │   │   │   │           └── E
+        │   │   │   │               └── T
+        │   │   │   │                   └── F
+        │   │   │   │                       └── num
+        │   │   │   └── semi
+        │   │   └── BLOCK
+        │   │       ├── STMT
+        │   │       │   ├── if
+        │   │       │   ├── lparen
+        │   │       │   ├── COND
+        │   │       │   │   ├── boolstr
+        │   │       │   │   └── _COND
+        │   │       │   │       ├── comp
+        │   │       │   │       └── COND
+        │   │       │   │           ├── boolstr
+        │   │       │   │           └── _COND
+        │   │       │   ├── rparen
+        │   │       │   ├── lbrace
+        │   │       │   ├── BLOCK
+        │   │       │   │   ├── STMT
+        │   │       │   │   │   ├── ASSIGN
+        │   │       │   │   │   │   ├── id
+        │   │       │   │   │   │   ├── assign
+        │   │       │   │   │   │   └── RHS
+        │   │       │   │   │   │       └── EXPR
+        │   │       │   │   │   │           └── E
+        │   │       │   │   │   │               ├── E
+        │   │       │   │   │   │               │   └── T
+        │   │       │   │   │   │               │       └── F
+        │   │       │   │   │   │               │           └── id
+        │   │       │   │   │   │               ├── addsub
+        │   │       │   │   │   │               └── T
+        │   │       │   │   │   │                   └── F
+        │   │       │   │   │   │                       └── num
+        │   │       │   │   │   └── semi
+        │   │       │   │   └── BLOCK
+        │   │       │   ├── rbrace
+        │   │       │   └── ELSE
+        │   │       │       ├── else
+        │   │       │       ├── lbrace
+        │   │       │       ├── BLOCK
+        │   │       │       │   ├── STMT
+        │   │       │       │   │   ├── ASSIGN
+        │   │       │       │   │   │   ├── id
+        │   │       │       │   │   │   ├── assign
+        │   │       │       │   │   │   └── RHS
+        │   │       │       │   │   │       └── EXPR
+        │   │       │       │   │   │           └── E
+        │   │       │       │   │   │               ├── E
+        │   │       │       │   │   │               │   └── T
+        │   │       │       │   │   │               │       └── F
+        │   │       │       │   │   │               │           └── id
+        │   │       │       │   │   │               ├── addsub
+        │   │       │       │   │   │               └── T
+        │   │       │       │   │   │                   └── F
+        │   │       │       │   │   │                       └── num
+        │   │       │       │   │   └── semi
+        │   │       │       │   └── BLOCK
+        │   │       │       └── rbrace
+        │   │       └── BLOCK
+        │   ├── RETURN
+        │   │   ├── return
+        │   │   ├── RHS
+        │   │   │   └── EXPR
+        │   │   │       └── E
+        │   │   │           └── T
+        │   │   │               └── F
+        │   │   │                   └── id
+        │   │   └── semi
+        │   └── rbrace
+        └── CODE
+            ├── VDECL
+            │   ├── vtype
+            │   ├── ASSIGN
+            │   │   ├── id
+            │   │   ├── assign
+            │   │   └── RHS
+            │   │       └── EXPR
+            │   │           └── E
+            │   │               └── T
+            │   │                   └── F
+            │   │                       └── id
+            │   └── semi
+            └── CODE
+                ├── VDECL
+                │   ├── vtype
+                │   ├── id
+                │   └── semi
+                └── CODE
+                    ├── FDECL
+                    │   ├── vtype
+                    │   ├── id
+                    │   ├── lparen
+                    │   ├── ARG
+                    │   ├── rparen
+                    │   ├── lbrace
+                    │   ├── BLOCK
+                    │   │   ├── STMT
+                    │   │   │   ├── if
+                    │   │   │   ├── lparen
+                    │   │   │   ├── COND
+                    │   │   │   │   ├── boolstr
+                    │   │   │   │   └── _COND
+                    │   │   │   │       ├── comp
+                    │   │   │   │       └── COND
+                    │   │   │   │           ├── boolstr
+                    │   │   │   │           └── _COND
+                    │   │   │   ├── rparen
+                    │   │   │   ├── lbrace
+                    │   │   │   ├── BLOCK
+                    │   │   │   │   ├── STMT
+                    │   │   │   │   │   └── VDECL
+                    │   │   │   │   │       ├── vtype
+                    │   │   │   │   │       ├── id
+                    │   │   │   │   │       └── semi
+                    │   │   │   │   └── BLOCK
+                    │   │   │   ├── rbrace
+                    │   │   │   └── ELSE
+                    │   │   └── BLOCK
+                    │   ├── RETURN
+                    │   │   ├── return
+                    │   │   ├── RHS
+                    │   │   │   └── EXPR
+                    │   │   │       └── E
+                    │   │   │           └── T
+                    │   │   │               └── F
+                    │   │   │                   └── id
+                    │   │   └── semi
+                    │   └── rbrace
+                    └── CODE

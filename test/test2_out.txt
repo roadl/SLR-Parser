@@ -1,0 +1,16 @@
+Accept!!!
+└── S
+    └── CODE
+        ├── VDECL
+        │   ├── vtype
+        │   ├── ASSIGN
+        │   │   ├── id
+        │   │   ├── assign
+        │   │   └── RHS
+        │   │       └── EXPR
+        │   │           └── E
+        │   │               └── T
+        │   │                   └── F
+        │   │                       └── id
+        │   └── semi
+        └── CODE
