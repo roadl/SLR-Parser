@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	for (int i = 0; i < token_num; i++)
 		if (get_symbol(tokens[i]) == ERROR)
 			{
-				cout << "Input file has invalid token!!" << endl;
+				cout << "Input file has invalid token: " << tokens[i] << "!!" << endl;
 				exit (EXIT_FAILURE);
 			}
 	
